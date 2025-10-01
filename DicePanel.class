@@ -1,0 +1,72 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import javax.swing.JPanel;
+
+public class DicePanel extends JPanel {
+   private int value = 1;
+
+   public DicePanel() {
+   }
+
+   public void setValue(int var1) {
+      this.value = var1;
+      this.repaint();
+   }
+
+   protected void paintComponent(Graphics var1) {
+      super.paintComponent(var1);
+      int var2 = Math.min(this.getWidth(), this.getHeight()) - 10;
+      var1.setColor(Color.WHITE);
+      var1.fillRect(0, 0, this.getWidth(), this.getHeight());
+      var1.setColor(Color.BLACK);
+      var1.drawRect(5, 5, var2, var2);
+      int var3 = var2 / 5;
+      int var4 = this.getWidth() / 2 - var3 / 2;
+      int var5 = this.getHeight() / 2 - var3 / 2;
+      switch (this.value) {
+         case 1:
+            this.drawDot(var1, var4, var5, var3);
+            break;
+         case 2:
+            this.drawDot(var1, var4 - var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 + var2 / 4, var3);
+            break;
+         case 3:
+            this.drawDot(var1, var4 - var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4, var5, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 + var2 / 4, var3);
+            break;
+         case 4:
+            this.drawDot(var1, var4 - var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4 - var2 / 4, var5 + var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 + var2 / 4, var3);
+            break;
+         case 5:
+            this.drawDot(var1, var4 - var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4, var5, var3);
+            this.drawDot(var1, var4 - var2 / 4, var5 + var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 + var2 / 4, var3);
+            break;
+         case 6:
+            this.drawDot(var1, var4 - var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 - var2 / 4, var3);
+            this.drawDot(var1, var4 - var2 / 4, var5, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5, var3);
+            this.drawDot(var1, var4 - var2 / 4, var5 + var2 / 4, var3);
+            this.drawDot(var1, var4 + var2 / 4, var5 + var2 / 4, var3);
+      }
+
+   }
+
+   private void drawDot(Graphics var1, int var2, int var3, int var4) {
+      var1.fillOval(var2, var3, var4, var4);
+   }
+
+   public Dimension getPreferredSize() {
+      return new Dimension(50, 50);
+   }
+}
