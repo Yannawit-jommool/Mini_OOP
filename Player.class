@@ -1,0 +1,30 @@
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+import java.awt.Color;
+
+public class Player {
+   private String name;
+   private Color color;
+   private int position;
+
+   public Player(String var1, Color var2) {
+      this.name = var1;
+      this.color = var2;
+      this.position = 1;
+   }
+
+   public String getName() {
+      return this.name;
+   }
+
+   public Color getColor() {
+      return this.color;
+   }
+
+   public int getPosition() {
+      return this.position;
+   }
+
+   public void setPosition(int var1) {
+      this.position = var1;
+   }
+}
